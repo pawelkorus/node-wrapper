@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
 ALREADY_INSTALLED=0
+CONFIG_FILE='.nwrc'
 
-if [ -f .nvmrc ]; then
-    NODE_VERSION=`cat .nvmrc`
+if [ -f $CONFIG_FILE ]; then
+    NODE_VERSION=`cat $CONFIG_FILE`
 fi
 
 if [ -z $NODE_VERSION ]; then
