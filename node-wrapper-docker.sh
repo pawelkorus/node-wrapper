@@ -1,14 +1,13 @@
 #!/usr/bin/env sh
 
-v_config_file='.nwdrc'
+v_config_file=".nwdrc"
 
 if [ -f $v_config_file ]; then
     v_node_version=`cat $v_config_file`
 fi
 
 if [ -z $v_node_version ]; then
-    echo "Node version not specfied. Exiting."
-    exit 1
+    v_node_version="lts-slim"
 fi
 
 v_version_1=`echo $v_node_version | cut -d: -f1 -`
