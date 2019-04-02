@@ -1,25 +1,26 @@
 #!/usr/bin/env sh
 
-CONFIG_FILE='.npmwdrc'
+v_config_file='.nwdrc'
 
-if [ -f $CONFIG_FILE ]; then
-    NODE_VERSION=`cat $CONFIG_FILE`
+if [ -f $v_config_file ]; then
+    v_node_version=`cat $v_config_file`
 fi
 
-if [ -z $NODE_VERSION ]; then
+if [ -z $v_node_version ]; then
     echo "Node version not specfied. Exiting."
     exit 1
 fi
 
-VERSION_1=`echo $NODE_VERSION | cut -d: -f1 -`
-VERSION_2=`echo $NODE_VERSION | cut -d: -f2 -s -`
-if [ -z $VERSION_2 ]; then
-    IMAGE_VERSION=node:$VERSION_1
+v_version_1=`echo $v_node_version | cut -d: -f1 -`
+v_version_2=`echo $v_node_version | cut -d: -f2 -s -`
+if [ -z $v_version_2 ]; then
+    v_image_version=node:$v_version_1
 else
-    IMAGE_VERSION=$VERSION_1:$VERSION_2
+    v_image_version=$v_version_1:$v_version_2
 fi
 
-CURRENT_USER_ID=`id -u`
-CURRENT_GROUP_ID=`id -g`
+v_current_user_id=`id -u`
+v_current_group_id=`id -g`
+v_command=`basename $0`
 
-docker run -v "$PWD":/usr/src/app -w /usr/src/app --user $CURRENT_USER_ID:$CURRENT_GROUP_ID $IMAGE_VERSION npm "$@"
+docker run -v "$PWD":/usr/src/app -w /usr/src/app --user $v_current_user_id:$v_current_group_id node:$v_node_version $v_command "$@"
