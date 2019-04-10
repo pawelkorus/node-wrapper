@@ -22,4 +22,4 @@ v_current_user_id=`id -u`
 v_current_group_id=`id -g`
 v_command=`basename $0`
 
-docker run -v "$PWD":/usr/src/app -w /usr/src/app --user $v_current_user_id:$v_current_group_id node:$v_node_version $v_command "$@"
+docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app --user $v_current_user_id:$v_current_group_id node:$v_node_version $v_command "$@"
