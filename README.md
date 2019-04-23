@@ -20,6 +20,6 @@ See [node docker hub page](https://hub.docker.com/_/node/) for possible versions
 echo "my-node:latest" > .nwdrc
 ```
 
-When copying `node-wrapper-docker.sh` the target name is important. It determines which executable from docker container is used. E.g. if `node-wrapper-docker.sh` is saved in project dir as `npm` then executing `./npm` runs `npm` in a container. Oterwise, if `node-wrapper-docker.sh` is saved as `node` then executing `./node` runs `node` in a container. This way you may run whatever executable is installed in a container. This will also work with symlinks.
+Target name is important when copying `node-wrapper-docker.sh`. It determines which executable from docker container is used. E.g. if `node-wrapper-docker.sh` is saved in project dir as `npm` then executing `./npm` runs `npm` in a container. Oterwise, if `node-wrapper-docker.sh` is saved as `node` then executing `./node` runs `node` in a container. This way you may run whatever executable is installed in a container. This will also work with symlinks.
 
 All commands in container are executed with current user id and group id.
