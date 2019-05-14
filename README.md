@@ -1,10 +1,10 @@
 # node-wrapper
 
-Simple POSIX shell scripts for managing project node version.
+Simple shell script for managing project node version.
 
-## node-wrapper-docker
+## usage
 
-This script requires `docker` in order to work.
+This tool requires `docker` in order to work.
 
 Copy `node-wrapper-docker.sh` to project dir as `npm` and add executable permissions. Then you can work with your project as usuall, i.e.:
 ```
@@ -23,3 +23,10 @@ echo "my-node:latest" > .nwdrc
 Target name is important when copying `node-wrapper-docker.sh`. It determines which executable from docker container is used. E.g. if `node-wrapper-docker.sh` is saved in project dir as `npm` then executing `./npm` runs `npm` in a container. Oterwise, if `node-wrapper-docker.sh` is saved as `node` then executing `./node` runs `node` in a container. This way you may run whatever executable is installed in a container. This will also work with symlinks.
 
 All commands in container are executed with current user id and group id.
+
+## develop
+
+In order to execute tests run:
+```
+docker run --rm -it -v "$(pwd):/code" bats/bats:latest code/test
+```
