@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-v_config_file=".nwdrc"
+v_config_file="${NWDRC_PATH:-.nwdrc}"
 
 if [ -f $v_config_file ]; then
     v_node_version=`cat $v_config_file`
