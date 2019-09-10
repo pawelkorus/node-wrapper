@@ -8,7 +8,7 @@ This tool requires `docker` in order to work.
 
 Copy `node-wrapper-docker.sh` to project dir as `npm`. Make sure that this `npm` file has executable permission.
 ```
-curl https://github.com/pawelkorus/node-wrapper/raw/master/node-wrapper-docker.sh -o npm
+curl https://raw.githubusercontent.com/pawelkorus/node-wrapper/master/node-wrapper-docker.sh -o npm
 ```
 
 Then you can work with your project as usuall, i.e.:
